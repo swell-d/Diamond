@@ -14,8 +14,18 @@ public class DiamondTests {
         for (int i=1; i <= 9; i += 2) assertEquals(i, new Diamond(i).draw().split("\n").length);
     }
 
+
+    @Test(expected = IllegalArgumentException.class)
+    public void IAEIsThrownOnEvenHeight() {
+        new Diamond(2);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void IAEIsThrownOnNegativeHeight() {
+        new Diamond(-3);
+    }
     @Test
-    public void checkWeidth(){
+    public void checkWidth(){
         for (int i=1; i <= 9; i += 2){
             for (String line : new Diamond(i).draw().split("\n")) assertEquals(i, line.length());
         }
