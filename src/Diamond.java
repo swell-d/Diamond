@@ -11,11 +11,11 @@ class Diamond {
 
     String draw() {
         String result = "";
-        for (int line=1; line <= this.height; line++) result += line(line);
+        for (int line=1; line <= this.height; line++) result += drawLine(line);
         return result;
     }
 
-    private String line(int line) {
+    private String drawLine(int line) {
         return isOuter(line)? outerLine() : innerLine(line);
     }
 
