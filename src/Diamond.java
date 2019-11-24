@@ -10,27 +10,27 @@ class Diamond {
 
     String draw() {
         String result = "";
-        for (int line=1; line <= this.height; line++) result += Line(line);
+        for (int line=1; line <= this.height; line++) result += line(line);
         return result;
     }
 
-    private String Line(int line) {
-        return isOuterLine(line)? OuterLine() : InnerLine(line);
+    private String line(int line) {
+        return isOuter(line)? outerLine() : innerLine(line);
     }
 
-    private boolean isOuterLine(int line) {
+    private boolean isOuter(int line) {
         return line == 1 || line == this.height;
     }
 
-    private String InnerLine(int line) {
-        int spaces_before = Math.abs(this.center - line);
-        int spaces_between = this.height - spaces_before * 2 - 2;
-        return repeat(" ", spaces_before) + "o" +
-                repeat(" ", spaces_between) +
-                "o" + repeat(" ", spaces_before) + "\n";
+    private String innerLine(int line) {
+        int outerSpaces = Math.abs(this.center - line);
+        int spacesBetween = this.height - outerSpaces * 2 - 2;
+        return repeat(" ", outerSpaces) + "o" +
+                repeat(" ", spacesBetween) +
+                "o" + repeat(" ", outerSpaces) + "\n";
     }
 
-    private String OuterLine() {
+    private String outerLine() {
         return repeat(" ", this.center - 1) + "o" + repeat(" ", this.center - 1) + "\n";
     }
 
