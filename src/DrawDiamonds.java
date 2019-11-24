@@ -3,5 +3,6 @@ class DrawDiamonds{
         System.out.print(new Diamond(3).draw());
         System.out.print(new Diamond(5).draw());
         System.out.print(new Diamond(7).draw());
+        System.out.print(new Diamond(9).draw());
     }
 }
